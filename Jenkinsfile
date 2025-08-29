@@ -23,6 +23,7 @@ pipeline {
         stage('Package') {
             steps {
                 sh "mvn package"
+                sh "docker build -t blogs_app . && docker run -d -p 8079:8080 blogs_app"
             }
         }
     }
